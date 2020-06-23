@@ -45,7 +45,7 @@
           </range>
           <noise>
             <type>gaussian</type>
-            <!-- Noise parameters based on published spec for Hokuyo laser
+            <!-- Noise parameters based on published spec for Hokuyo laser="-0.03 0 0.08 0.000000 -1.396263 0.000000" xyz="-0.03 0 0.08" rpy="-0.174533 -0.000000 -1.570796" link_name="BASE" /
                  achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
                  stddev of 0.01m will put 99.7% of samples within 0.03m of the true
                  reading. -->

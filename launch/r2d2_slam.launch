@@ -1,0 +1,68 @@
+<launch>
+  <arg name="model"  default="$(find robot_assembler)/my_assembled_robot/r2d2.urdf" />
+  <arg name="paused" default="false" />
+  <!--arg name="gzangles" default="-J JOINT0 -0.2" / use with paused -->
+  <arg name="gzangles" default="" />
+  <arg name="gzpose" default="-x 8 -y 8 -z 0.5" />
+  <arg name="control_config" default="$(find robot_assembler)/config/joint_state_controller.yaml" />
+  <arg name="gui" default="false" />
+
+  <arg name="use_xacro" default="false" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="world_name" value="$(find gazebo_ros)/launch/willowgarage_world.launch" />
+  </include>
+
+  <!-- Load universal robotic description format (URDF) -->
+  <param if=    "$(arg use_xacro)" name="robot_description" command="$(find xacro)/xacro '$(arg model).xacro'" />
+  <param unless="$(arg use_xacro)" name="robot_description" command="$(find xacro)/xacro '$(arg model)'" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner"
+        respawn="false" output="screen"
+        args="$(arg gzangles) $(arg gzpose) -urdf -model AssembledRobot -param robot_description" />
+
+  <!-- convert joint states to TF transforms -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen" />
+  <!-- map server -->
+  <node name="map_server" pkg="map_server" type="map_server"
+    args="$(find mapping)/maps/willow.yaml"/>
+
+  <!-- amcl -->
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(arg control_config)" command="load" ns="/"/>
+
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/head_controller.yaml"
+            ns="/" />
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/gripper_controller.yaml"
+            ns="/" />
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/diffdrive.yaml"
+            ns="/" />
+
+  <!-- load for SLAM -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base"
+    output="screen">
+    <rosparam file="$(find robot_assembler)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find robot_assembler)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find robot_assembler)/config/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find robot_assembler)/config/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find robot_assembler)/config/base_local_planner_params.yaml" command="load"/>
+  </node>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager"
+        type="spawner" respawn="false"
+        output="screen" args="--shutdown-timeout 3
+                              joint_state_controller
+                              head_controller
+                              gripper_controller
+                              diff_drive_controller" />
+
+
+</launch>

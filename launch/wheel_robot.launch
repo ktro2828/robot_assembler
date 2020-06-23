@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model"  default="" />
+  <arg name="model"  default="$(find robot_assembler)/my_assembled_robot/wheel_robot.urdf" />
   <arg name="paused" default="false" />
   <!--arg name="gzangles" default="-J JOINT0 -0.2" / use with paused -->
   <arg name="gzangles" default="" />
@@ -10,7 +10,7 @@
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch" >
     <arg name="paused" value="$(arg paused)" />
-    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="world_name" value="$(find robot_assembler)/world/random_trash_cans.world" />
   </include>
 
   <!-- Load universal robotic description format (URDF) -->
@@ -33,6 +33,7 @@
         type="spawner" respawn="false"
         output="screen" args="--shutdown-timeout 0.1
                               joint_state_controller
-                              fullbody_controller" />
+                              fullbody_controller
+                              lidar_controller" />
 
 </launch>

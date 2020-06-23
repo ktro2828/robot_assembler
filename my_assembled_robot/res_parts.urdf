@@ -1,0 +1,202 @@
+<!-- link1 -->
+<visual>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.83454692 1.57079633 -1.87784206"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.83454692 1.57079633 -1.87784206"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.33667482 1.57079633 -1.90747115"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.33667482 1.57079633 -1.90747115"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.30451088 -1.57079633 -1.87530721"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.30451088 -1.57079633 -1.87530721"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.90474389 -1.57079633 -1.80764509"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.90474389 -1.57079633 -1.80764509"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<!-- link3 -->
+<visual>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.83454692 1.57079633 -1.87784206"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.83454692 1.57079633 -1.87784206"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.33667482 1.57079633 -1.90747115"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.33667482 1.57079633 -1.90747115"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.30451088 -1.57079633 -1.87530721"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.30451088 -1.57079633 -1.87530721"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.90474389 -1.57079633 -1.80764509"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.90474389 -1.57079633 -1.80764509"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<!-- link5 -->
+<collision>
+   <origin xyz="0.000000 0.000000 -0.019000" rpy="0.00000000 -0.00000000 0.00000000"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/xm430_dynamixel.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.75327394 1.57079633 -1.95911504"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.75327394 1.57079633 -1.95911504"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.34877100 1.57079633 -1.91956733"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.34877100 1.57079633 -1.91956733"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.45333870 -1.57079633 -2.02413502"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.45333870 -1.57079633 -2.02413502"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.69717344 -1.57079633 -2.01521554"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.69717344 -1.57079633 -2.01521554"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<!-- link7 -->
+<visual>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.75327394 1.57079633 -1.95911504"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.014250 -0.032000 -0.019000" rpy="2.75327394 1.57079633 -1.95911504"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.34877100 1.57079633 -1.91956733"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="-0.028900 0.018000 0.031000" rpy="-0.34877100 1.57079633 -1.91956733"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.45333870 -1.57079633 -2.02413502"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.014250 -0.032000 -0.019000" rpy="0.45333870 -1.57079633 -2.02413502"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/hr12_f101.dae" scale="1.000000 1.000000 1.000000"/>
+   </geometry>
+</collision>
+<visual>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.69717344 -1.57079633 -2.01521554"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</visual>
+<collision>
+   <origin xyz="0.028900 0.018000 -0.069000" rpy="-2.69717344 -1.57079633 -2.01521554"/>
+   <geometry>
+   <mesh filename="package://robot_assembler/meshes/wheel.dae" scale="0.001000 0.001000 0.001000"/>
+   </geometry>
+</collision>

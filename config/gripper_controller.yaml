@@ -1,0 +1,10 @@
+gripper_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+    - gripper_extension
+    - gripper_roll
+    - gripper_pitch1
+    - gripper_pitch2
+    - gripper_yaw
+    - left_gripper_joint
+    - right_gripper_joint

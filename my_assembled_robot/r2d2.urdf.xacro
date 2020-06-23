@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- XML namespaces -->
+<robot xmlns:xi="http://www.w3.org/2001/XInclude"
+       xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"
+       xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"
+       xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+       name="r2d2" >
+  <xacro:include filename="$(find robot_assembler)/gazebo/gazebo_plugins.xacro" />
+  <xacro:include filename="$(find robot_assembler)/my_assembled_robot/r2d2.urdf" />
+  <xacro:add_gazebo_imu_sensor link_name="base_link" frame="base_link" />
+  <xacro:add_gazebo_ros_ft_sensor topic="r_front_sensor" joint_name="right_front_wheel_joint" />
+  <xacro:add_gazebo_ros_ft_sensor topic="r_back_sensor" joint_name="right_back_wheel_joint" />
+  <xacro:add_gazebo_ros_ft_sensor topic="l_front_sensor" joint_name="left_front_wheel_joint" />
+  <xacro:add_gazebo_ros_ft_sensor topic="l_back_sensor" joint_name="left_back_wheel_joint" />
+  <xacro:add_gazebo_ros_ft_sensor topic="r_gripper_sensor" joint_name="right_gripper_joint"/>
+  <xacro:add_gazebo_camera pose="0.08 0 0 0 0 0" xyz="0.08 0 0" rpy="0 0 0" link_name="box" />
+  <xacro:add_gazebo_depth_camera pose="0.08 0 0 0 0 0" xyz="0.08 0 0" rpy="0 0 0" link_name="box"/>
+  <!--<xacro:add_gazebo_range_sensor pose="0.08 0 0 0 0 0" xyz="0.08 0 0" rpy="0 0 0" link_name="box" topic="scan"/>-->
+</robot>

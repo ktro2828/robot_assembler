@@ -1,16 +1,17 @@
 <launch>
-  <arg name="model"  default="" />
+  <arg name="model"  default="$(find robot_assembler)/my_assembled_robot/r2d2.urdf" />
   <arg name="paused" default="false" />
   <!--arg name="gzangles" default="-J JOINT0 -0.2" / use with paused -->
   <arg name="gzangles" default="" />
-  <arg name="gzpose" default="-x 0 -y 0 -z 0.3 -R 0.0 -P -1.57 -Y 3.14" />
-  <arg name="control_config" default="$(arg model).gz_controller.yaml" />
-  <arg name="world_name" default="worlds/empty.world" />
+  <arg name="gzpose" default="-z 0.5" />
+  <arg name="control_config" default="$(find robot_assembler)/config/joint_state_controller.yaml" />
+  <arg name="gui" default="false" />
+
   <arg name="use_xacro" default="false" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch" >
     <arg name="paused" value="$(arg paused)" />
-    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="world_name" value="$(find robot_assembler)/world/random_trash_cans.world" />
   </include>
 
   <!-- Load universal robotic description format (URDF) -->
@@ -26,13 +27,26 @@
         respawn="false" output="screen" />
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(arg control_config)" command="load"/>
+  <rosparam file="$(arg control_config)" command="load" ns="/"/>
+
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/head_controller.yaml"
+            ns="/" />
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/gripper_controller.yaml"
+            ns="/" />
+  <rosparam command="load"
+            file="$(find robot_assembler)/config/diffdrive.yaml"
+            ns="/" />
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager"
         type="spawner" respawn="false"
-        output="screen" args="--shutdown-timeout 0.1
+        output="screen" args="--shutdown-timeout 3
                               joint_state_controller
-                              fullbody_controller" />
+                              head_controller
+                              gripper_controller
+                              diff_drive_controller" />
+
 
 </launch>
