@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model"  default="$(find robot_assembler)/my_assembled_robot/wheel_robot.urdf" />
+  <arg name="model"  default="$(find robot_assembler)/my_assembled_robot/quadrupted_robot.urdf" />
   <arg name="paused" default="false" />
   <!--arg name="gzangles" default="-J JOINT0 -0.2" / use with paused -->
   <arg name="gzangles" default="" />

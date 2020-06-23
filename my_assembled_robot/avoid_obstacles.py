@@ -22,13 +22,13 @@ act_client.wait_for_server()
 
 rate = rospy.Rate(10)
 start = rospy.Time.now()
-while (1):
+while not rospy.is_shutdown():
     # gen msg
     traj_msg = FollowJointTrajectoryGoal()
     traj_msg.trajectory.header.stamp = rospy.Time.now() + rospy.Duration(0.2)
     traj_msg.trajectory.joint_names = ['JOINT0', 'JOINT1', 'JOINT2', 'JOINT3', 'JOINT4', 'JOINT5', 'JOINT6', 'JOINT7']
 
-
+    # Go ahead
     traj_msg.trajectory.points.append(JointTrajectoryPoint(positions=[-0.55, 0.4, 0.1, -0.4, 0.1, 0.4, -0.55, -0.4], #姿勢1
                                                            time_from_start = rospy.Duration(2))) ## 前の姿勢から2se
     traj_msg.trajectory.points.append(JointTrajectoryPoint(positions=[0.1, 0.4, -0.55, -0.4, -0.55, 0.4, 0.1, -0.4], #姿勢2
@@ -42,9 +42,16 @@ while (1):
 
     # send to robot
     act_client.send_goal(traj_msg)
-
     act_client.wait_for_result()
 
-    rospy.loginfo("done")
     if g_range_ahead < 0.8:
-        break
+        rospy.loginfo("==> Found obstacle")
+
+        # Avoid obstacle
+        traj_msg.trajectory.points.append(JointTrajectoryPoint(positions=[-0.55, 0.4, 0.1, -0.4, 0.1, 0.4, -0.55, -0.4], #姿勢1
+                                                               time_from_start = rospy.Duration(2))) ## 前の姿勢から2se
+        traj_msg.trajectory.points.append(JointTrajectoryPoint(positions=[0.1, 0.4, -0.55, -0.4, -0.55, 0.4, 0.1, -0.4], #姿勢2
+                                                               time_from_start = rospy.Duration(6)))## 前の姿勢から4sec
+        # send to robot
+        act_client.send_goal(traj_msg)
+        act_client.wait_for_result()

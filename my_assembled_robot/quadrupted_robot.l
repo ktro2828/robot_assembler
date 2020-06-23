@@ -149,9 +149,9 @@
 ;;
 ;; end of copy from /opt/ros/melodic/share/euscollada/src/euscollada-robot.l
 ;;
-(defun wheel_robot () (setq *wheel_robot* (instance wheel_robot-robot :init)))
+(defun quadrupted_robot () (setq *quadrupted_robot* (instance quadrupted_robot-robot :init)))
 
-(defclass wheel_robot-robot
+(defclass quadrupted_robot-robot
   :super euscollada-robot
   :slots ( ;; link names
           BASE_lk LINK0_lk LINK1_lk LINK2_lk LINK3_lk LINK4_lk LINK5_lk LINK6_lk LINK7_lk
@@ -161,7 +161,7 @@
           imu_sensor-sensor-coords lrearsensor-sensor-coords rrearsensor-sensor-coords lfrontsensor-sensor-coords rfrontsensor-sensor-coords head_cam-sensor-coords head_ray-sensor-coords
          )
   )
-(defmethod wheel_robot-robot
+(defmethod quadrupted_robot-robot
   (:init
    (&rest args)
    (let ()
@@ -3025,5 +3025,4 @@
   )
 
 
-(provide :wheel_robot "(kotaro-ThinkPad-X1-Yoga-4th 5.0.0-1052-oem-osp1 x86_64) at 2020-05-27 12:11:46 JST")
-
+(provide :quadrupted_robot "(kotaro-ThinkPad-X1-Yoga-4th 5.0.0-1052-oem-osp1 x86_64) at 2020-05-27 12:11:46 JST")
