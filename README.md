@@ -10,7 +10,7 @@ https://github.com/agent-system/robot_assembler/blob/master/doc/Robot_Assembler%
 1. launch robot-assembler
 ```
 roslaunch robot_assembler robot_assembler ROBOT_NAME:=your_robot_name OUTPUT_DIR:=path_to_save
-# if you want to re-start assembling add option
+# if you want to re-start assembling, add option
 START_WITH:=ROBOT_NAME.roboasm.l
 ```
 2. check your assembled robot on Rviz
@@ -18,7 +18,7 @@ START_WITH:=ROBOT_NAME.roboasm.l
 roslaunch robot_assembler urdf_check.launch model:=/OUTPUT_DIR/ROBOT_NAME.urdf
 ```
 3. create robot for Euslisp
-at __/OUTPUT_DIR__
+at __OUTPUT_DIR/__
 ```
 rosrun euscollada collada2eus -I ROBOT_NAME.urdf -O ROBOT_NAME.l -C ROBOT_NAME.urdf.euscollada.yaml
 ```
