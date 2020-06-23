@@ -14,7 +14,7 @@ def scan_callback(msg):
 # initial value of g_range_ahead
 g_range_ahead = 1
 
-rospy.init_node('send_motion', anonymous=T)
+rospy.init_node('send_motion', anonymous=True)
 scan_sub = rospy.Subscriber('/range_sensor', LaserScan, scan_callback)
 act_client = actionlib.SimpleActionClient('/fullbody_controller/follow_joint_trajectory', FollowJointTrajectoryAction)
 
