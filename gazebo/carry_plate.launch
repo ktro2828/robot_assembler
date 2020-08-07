@@ -1,0 +1,42 @@
+<launch>
+  <!-- this file is just a sample -->
+  <arg name="model"  default="$(find robot_assembler)/sample/HUMANOID.urdf" />
+  <arg name="paused" default="false" />
+  <arg name="world_name" default="$(find robot_assembler)/gazebo/worlds/carry_plate.world" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="world_name" value="$(arg world_name)" />
+  </include>
+
+  <!-- robot1 -->
+  <include file="$(find robot_assembler)/gazebo/robot_assembler_gazebo_robot.launch" >
+    <arg name="model" value="$(arg model)" />
+    <arg name="use_xacro" value="true" />
+    <arg name="use_namespace" value="true" />
+
+    <arg name="namespace" value="robot1" />
+    <arg name="robot_name" value="robot1" />
+  </include>
+  <include file="$(find robot_assembler)/gazebo/hsi_color_filter.launch">
+    <arg name="INPUT" value="/robot1/depth_cam/points"/>
+    <arg name="NAMESPACE" value="robot1"/>
+  </include>
+
+  <!-- robot2 -->
+  <include file="$(find robot_assembler)/gazebo/robot_assembler_gazebo_robot.launch" >
+    <arg name="model" value="$(arg model)" />
+    <arg name="use_xacro" value="true" />
+    <arg name="use_namespace" value="true" />
+
+    <arg name="namespace" value="robot2" />
+    <arg name="robot_name" value="robot2" />
+    <!-- -->
+    <arg name="gzpose" value="-y 0.5 -z 0.3" />
+  </include>
+  <include file="$(find robot_assembler)/gazebo/hsi_color_filter.launch">
+    <arg name="INPUT" value="/robot2/depth_cam/points"/>
+    <arg name="NAMESPACE" value="robot2"/>
+  </include>
+
+</launch>
