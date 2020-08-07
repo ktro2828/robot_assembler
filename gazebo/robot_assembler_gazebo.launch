@@ -3,7 +3,7 @@
   <arg name="paused" default="false" />
   <!--arg name="gzangles" default="-J JOINT0 -0.2" / use with paused -->
   <arg name="gzangles" default="" />
-  <arg name="gzpose" default="-x 0 -y 0 -z 0.3 -R 0.0 -P -1.57 -Y 3.14" />
+  <arg name="gzpose" default="-z 0.3" />
   <arg name="control_config" default="$(arg model).gz_controller.yaml" />
   <arg name="world_name" default="worlds/empty.world" />
   <arg name="use_xacro" default="false" />
