@@ -4,12 +4,17 @@ import rospy
 import actionlib
 from control_msgs.msg import FollowJointTrajectoryAction, FollowJointTrajectoryGoal
 from trajectory_msgs.msg import JointTrajectoryPoint
+from sensor_msgs.msg import LaserScan
+
 
 rospy.init_node('send_motion')
 act_client = actionlib.SimpleActionClient(
     '/fullbody_controller/follow_joint_trajectory', FollowJointTrajectoryAction)
 
 act_client.wait_for_server()
+name_space = rospy.get_param('~namespace')
+
+sub = rospy.Subscriber('')
 
 # gen msg
 traj_msg = FollowJointTrajectoryGoal()
