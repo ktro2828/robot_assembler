@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="ra_box">
+    <static>True</static>
+    <link name="link">
+      <collision name="box">
+        <pose>0.5 0.25 0.1 0 0 0</pose>
+        <geometry>
+          <box><size>0.30 0.30 0.20</size></box>
+        </geometry>
+      </collision>
+      <visual name="box">
+        <pose>0.5 0.25 0.1 0 0 0</pose>
+        <geometry>
+          <box><size>0.30 0.30 0.20</size></box>
+        </geometry>
+        <material>
+          <ambient> .6 .55 .55 1</ambient>
+          <diffuse>.65 .6  .6  1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
